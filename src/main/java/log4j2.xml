@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+        	<!-- Linux console safe -->
+            <!--  <PatternLayout pattern="%highlight{%-5p [%t]:} %m%n" /> -->
+            <!--  Eclipse Safe -->
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5p [%t]: %m%n" />
+        </Console>
+        <File name="MyFile" fileName="${sys:log.path}/TemplateParser.log" immediateFlush="true" append="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5p [%t]: %m%n"/>
+        </File>
+    </Appenders>
+    
+    <Loggers>
+    	<!-- <Root level="all"> -->
+    	<!-- <Root level="info"> -->
+    	<!-- <Root level="debug"> -->
+    	<!-- <Root level="warn"> -->
+    	<!-- <Root level="error"> -->
+    	<!-- <Root level="fatal"> -->
+    	<!-- <Root level="trace"> -->
+    	<!-- <Root level="off"> -->
+        <Root level="${sys:log.level}">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="MyFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
